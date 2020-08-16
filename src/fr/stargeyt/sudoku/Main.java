@@ -10,7 +10,7 @@ public class Main {
         int[][] grille = //Fill your Sudoku default grid here
                 {
                         {0,0,0,0,0,0,0,0,0},
-                        {0,0,0,0,0,3,0,8,5},
+                        {3,0,0,0,0,3,0,8,5},
                         {0,0,1,0,2,0,0,0,0},
                         {0,0,0,5,0,7,0,0,0},
                         {0,0,4,0,0,0,1,0,0},
@@ -23,7 +23,10 @@ public class Main {
 
         Grille.solve(grille);
 
-        if(Grille.Solved) System.out.println("Le programme a mis "+(System.currentTimeMillis()-debut)+ " millisecondes pour remplir la grille");
+
+
+
+        if(Grille.solvable)System.out.println("Le programme a mis "+(System.currentTimeMillis()-debut)+ " millisecondes pour remplir la grille");
 
 
 
