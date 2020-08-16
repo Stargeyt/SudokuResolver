@@ -1,6 +1,8 @@
-package fr.stargeyt.sudoku;
+package fr.stargeyt.Sudoku;
 
 public class Grille {
+
+    public static boolean Solved= false;
 
     public static void solve(int[][] grille) {
         estValide(grille,0);
@@ -51,14 +53,22 @@ public class Grille {
 
     public static boolean estValide (int[][] grille, int position)
     {
-        if (position == 9*9)
+        if (position == 9*9){
+            Solved = true;
             return true;
+        }
+
 
         int row = position/9, column = position%9;
 
         if (grille[row][column] != 0)
             return estValide(grille, position+1);
 
+
+        if(System.currentTimeMillis()-Main.debut > 30000){
+            System.out.println("Le système a mis trop de temps à répondre, la grille n'est pas résolvable");
+            return false;
+        }
         for (int k=1; k <= 9; k++)
         {
             if (absentSurLigne(k,grille,row) && absentSurColonne(k,grille,column) && absentSurBloc(k,grille,row,column))

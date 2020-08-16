@@ -1,12 +1,13 @@
-package fr.stargeyt.sudoku;
+package fr.stargeyt.Sudoku;
 
 public class Main {
 
+    public static long debut=0;
 
     public static void main(String args[]){
-        long debut = System.currentTimeMillis();
 
-        int[][] grille =
+        debut = System.currentTimeMillis();
+        int[][] grille = //Fill your Sudoku default grid here
                 {
                         {0,0,0,0,0,0,0,0,0},
                         {0,0,0,0,0,3,0,8,5},
@@ -22,7 +23,7 @@ public class Main {
 
         Grille.solve(grille);
 
-        System.out.println("Le programme a mis "+(System.currentTimeMillis()-debut)+ " millisecondes pour remplir la grille");
+        if(Grille.Solved) System.out.println("Le programme a mis "+(System.currentTimeMillis()-debut)+ " millisecondes pour remplir la grille");
 
 
 
